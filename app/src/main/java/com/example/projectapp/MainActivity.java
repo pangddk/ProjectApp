@@ -1,19 +1,13 @@
 package com.example.projectapp;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-
-    private ImageButton btn_InfoMenu;
-    private ImageButton btn_Exercise;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Current Date
         Calendar c = Calendar.getInstance();
+        //SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        //String formattedDate = df.format(c.getTime());
         int d = c.get(Calendar.DATE);
         int m = c.get(Calendar.MONTH);
         int y = c.get(Calendar.YEAR) + 543;
@@ -72,27 +68,5 @@ public class MainActivity extends AppCompatActivity {
         TextView result = (TextView) findViewById(R.id.txt_Date);
         //result.setText(formattedDate);
         result.setText(d + " " + month + " " + y);
-
-        //Button to Information Menu
-        btn_InfoMenu = (ImageButton)findViewById(R.id.btn_InfoMenu);
-        btn_InfoMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, InformationActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        //Button to Exercise Menu
-        btn_Exercise = (ImageButton)findViewById(R.id.btn_Exercise);
-        btn_Exercise.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ExerciseActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
-
 }
